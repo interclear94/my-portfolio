@@ -1,13 +1,9 @@
-import AboutMe from "./AboutMe";
-import Projects from "./Projects";
-import Skills from "./Skills";
+import Hero from "./Hero";
 
 const Main = () => {
   return (
     <main className="w-full">
-      <AboutMe />
-      <Skills />
-      <Projects />
+      <Hero />
     </main>
   );
 };
