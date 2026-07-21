@@ -1,4 +1,4 @@
-import logo from "../../assets/sc_logo.png";
+import logo from "../../assets/profile/sc_logo.png";
 
 const Header = () => {
   return (

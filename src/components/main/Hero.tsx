@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="absolute z-20">
         <h2 className="font-extrabold text-4xl text-center leading-13 text-white/40">
           <p>Front'And'를 꿈꾸는 사람</p>
-          <p>박상철 입니다.</p>
+          <p> 입니다.</p>
           <p>잘 부탁드립니다.</p>
         </h2>
       </div>
