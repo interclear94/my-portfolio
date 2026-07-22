@@ -1,5 +1,5 @@
 import { ChevronsDown, MouseIcon } from "lucide-react";
-import BackroundImage from "../../assets/hero_background.avif";
+import BackroundImage from "../../assets/hero_section_background.png";
 
 const Hero = () => {
   return (
@@ -7,16 +7,16 @@ const Hero = () => {
       style={{
         backgroundImage: `url(${BackroundImage})`,
       }}
-      className="relative w-full min-h-dvh flex flex-col justify-center items-center bg-center"
+      className="relative w-full min-h-dvh flex flex-col justify-center items-center bg-right"
     >
       <div className="absolute z-20">
-        <h2 className="font-extrabold text-4xl text-center leading-13 text-white/40">
-          <p>Front'And'를 꿈꾸는 사람</p>
-          <p> 입니다.</p>
-          <p>잘 부탁드립니다.</p>
+        <h2 className="font-extrabold text-center leading-16 text-white/40 ">
+          <p className="text-[3.2rem]">'End'가 아닌 'And'</p>
+          <p className="text-[3.2rem]">Front'And' 를 꿈꾸는 사람</p>
+          <p className="text-[2.8rem] pt-3">잘 부탁드립니다</p>
         </h2>
       </div>
-      <div className="absolute bottom-6 flex justify-center z-30 text-white/40">
+      <div className="absolute bottom-6 flex justify-center z-30 text-white/40 animate-[scrollGuideMove_1s_linear_infinite]">
         <div className="flex flex-col justify-center items-center">
           <MouseIcon className="opacity-70" />
           <ChevronsDown className="opacity-70" />

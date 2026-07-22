@@ -11,3 +11,17 @@
   --gray-text: #fcfcfc;
   --gray-sub-text: #c4c4c4; */
 }
+
+@keyframes scrollGuideMove {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}

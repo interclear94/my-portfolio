@@ -23,7 +23,7 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
-      <div className="absolute left-0 top-0 w-full min-h-dvh bg-black z-20" />
+      {/* <div className="left-0 top-0 w-full min-h-dvh bg-black z-20" /> */}
     </section>
   );
 };
