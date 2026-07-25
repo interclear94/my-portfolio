@@ -38,7 +38,7 @@ const Hero = ({ ref }: any) => {
       <div className="absolute z-20">
         <h2
           ref={textRef}
-          className={`font-extrabold text-center leading-16 text-white transition-opacity duration-1000 ${isVisible ? "opacity-40" : "opacity-0"}`}
+          className={`font-extrabold text-center leading-16 text-white transition-opacity duration-1800 ${isVisible ? "opacity-40" : "opacity-0"}`}
         >
           <p className="text-[3.2rem]">'End'가 아닌 'And'</p>
           <p className="text-[3.2rem]">Front'And' 를 꿈꾸는 사람</p>

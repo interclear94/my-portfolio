@@ -1,43 +1,42 @@
 import { useEffect, useRef, useState } from "react";
 import aboutMeImage from "../../assets/my_profile_character.webp";
-import {
-  Cake,
-  GraduationCap,
-  MailIcon,
-  MapPinned,
-  NotebookPen,
-  User,
-} from "lucide-react";
+import { Cake, GraduationCap, MailIcon, MapPinned, User } from "lucide-react";
 
 const AboutMe = ({ ref }: any) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  // const
 
   useEffect(() => {
-    const target = targetRef.current;
+    const handleScroll = () => {
+      const section = targetRef.current;
 
-    if (!target) return;
+      if (!section) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 },
-    );
+      const sectionTop = section.getBoundingClientRect().top;
 
-    observer.observe(target);
+      const viewportHeight = window.innerHeight;
+
+      // 두 번째 section의 절반이 화면에 들어온 시점
+      if (sectionTop <= viewportHeight / 2) {
+        setIsVisible(true);
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      observer.unobserve(target);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <section className="w-full" ref={ref}>
-      <div className="w-full flex flex-col justify-center items-center py-30">
+      <div
+        className={`{ w-full flex flex-col justify-center items-center py-30 transition-opacity duration-1200 ease-out ${isVisible ? "opacity-100" : "opacity-0"} `}
+        ref={targetRef}
+      >
         <div className="w-[95%] flex gap-x-10 sm:flex-col sm:justify-center sm:items-center">
           {/* about Me 이미지 영역 */}
           <div className="w-[65%] aspect-square relative">
