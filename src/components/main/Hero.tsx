@@ -2,7 +2,7 @@ import { ChevronsDown, MouseIcon } from "lucide-react";
 import BackroundImage from "../../assets/hero_section_background.png";
 import { useEffect, useRef, useState } from "react";
 
-const Hero = () => {
+const Hero = ({ ref }: any) => {
   const textRef = useRef<HTMLHeadingElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -33,6 +33,7 @@ const Hero = () => {
         backgroundImage: `url(${BackroundImage})`,
       }}
       className="relative w-full min-h-dvh flex flex-col justify-center items-center bg-right"
+      ref={ref}
     >
       <div className="absolute z-20">
         <h2

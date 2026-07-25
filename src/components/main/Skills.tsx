@@ -92,9 +92,12 @@ const SKILLS: SkillType[] = [
   },
 ];
 
-const Skills = () => {
+const Skills = ({ ref }: any) => {
   return (
-    <section className="w-full bg-main-gray flex flex-col justify-center items-center py-20 px-5">
+    <section
+      className="w-full bg-gray-800 flex flex-col justify-center items-center py-20 px-10"
+      ref={ref}
+    >
       <div className="w-full pb-10">
         <div className="relative w-max h-max pb-5">
           <h2 className="relative text-gray-100 text-6xl font-bold tracking-wider px-4 z-10">
@@ -104,10 +107,10 @@ const Skills = () => {
         </div>
       </div>
       <div className="">
-        <ul className="grid grid-cols-3 grid-rows-2 gap-3">
+        <ul className="grid grid-cols-3 grid-rows-2 gap-10">
           {SKILLS.map((skill) => (
             <li
-              className="flex flex-col items-center px-3 border border-white rounded-2xl bg-white bg"
+              className="flex flex-col items-center px-3 pb-3 border border-white rounded-2xl bg-white bg"
               key={skill.sub}
             >
               <div className="w-[80%] flex justify-center items-center aspect-square border my-5">

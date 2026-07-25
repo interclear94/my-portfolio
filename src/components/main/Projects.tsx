@@ -148,9 +148,12 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-const Projects = () => {
+const Projects = ({ ref }: any) => {
   return (
-    <section className="w-full bg-main-gray flex flex-col justify-center items-center py-20 px-10">
+    <section
+      className="w-full bg-main-gray flex flex-col justify-center items-center py-20 px-10"
+      ref={ref}
+    >
       <div className="w-full">
         <div className="relative w-max h-max py-5">
           <h2 className="relative text-gray-100 text-6xl font-bold tracking-wider px-4 z-10">
