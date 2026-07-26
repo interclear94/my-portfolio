@@ -32,7 +32,7 @@ const Hero = ({ ref }: any) => {
       style={{
         backgroundImage: `url(${BackroundImage})`,
       }}
-      className="relative w-full min-h-dvh flex flex-col justify-center items-center bg-right"
+      className="relative w-full h-screen flex flex-col justify-center items-center bg-no-repeat bg-cover bg-right md:bg-right xl:bg-right"
       ref={ref}
     >
       <div className="absolute z-20">
@@ -51,7 +51,6 @@ const Hero = ({ ref }: any) => {
           <MouseIcon className="opacity-70" />
           <ChevronsDown className="opacity-70" />
         </div>
-        {/* <i className="opacity-70 text-sm">Scorll Down</i> */}
       </div>
       <div className="absolute w-full h-full bg-black/80 z-10" />
     </section>
