@@ -98,37 +98,35 @@ const Skills = ({ ref }: any) => {
       className="w-full bg-gray-800 flex flex-col justify-center items-center py-20 px-10"
       ref={ref}
     >
-      <div className="w-full pb-10">
+      <div className="w-full md:w-[80%] pb-10">
         <div className="relative w-max h-max pb-5">
-          <h2 className="relative text-gray-100 text-6xl font-bold tracking-wider px-4 z-10">
+          <h2 className="relative text-gray-100 text-5xl font-bold tracking-wider px-4 z-10 sm:text-6xl">
             Skills
           </h2>
-          <div className="absolute -right-2 bottom-0 bg-yellow-300 w-[65%] h-[0.7rem] z-0" />
+          <div className="absolute -right-2 bottom-2 bg-yellow-300 w-[65%] h-[0.35rem] sm:h-[0.7rem] sm:bottom-0 z-0" />
         </div>
       </div>
-      <div className="">
-        <ul className="grid grid-cols-3 grid-rows-2 gap-10">
+      <div className="w-[95%] md:w-[80%] flex flex-col justify-center items-center">
+        <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {SKILLS.map((skill) => (
             <li
-              className="flex flex-col items-center px-3 pb-3 border border-white rounded-2xl bg-white bg"
+              className="flex flex-col justify-center items-center px-3 sm:pb-3 border border-white rounded-2xl bg-[#dedede]"
               key={skill.sub}
             >
-              <div className="w-[80%] flex justify-center items-center aspect-square border my-5">
+              <div className="max-w-26 mt-7 md:w-[50%] flex justify-center items-center aspect-square border bg-white">
                 <img
                   className="w-[90%]"
                   src={skill.logo}
                   alt={`${skill.sub} logo`}
                 />
               </div>
-              <h3 className="text-[1rem] tracking-wider font-extrabold pb-3">
-                {skill.sub}
-              </h3>
-
-              <ul className="text-[0.95rem] tracking-normal">
-                {skill.desc.map((desc) => (
-                  <li key={desc}>- {desc}</li>
-                ))}
-              </ul>
+              <div className="my-3">
+                <ul className="text-[0.95rem] tracking-normal">
+                  {skill.desc.map((desc) => (
+                    <li key={desc}>- {desc}</li>
+                  ))}
+                </ul>
+              </div>
             </li>
           ))}
         </ul>

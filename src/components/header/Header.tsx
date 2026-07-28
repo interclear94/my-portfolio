@@ -9,7 +9,9 @@ interface HeaderProps {
 
 const Header = ({ sectionRefs, scrollToSection }: HeaderProps) => {
   const headerRef = useRef<HTMLElement | null>(null);
+  // 스크롤 시 헤더의 색상 적용 (투명도) 상태
   const [headerOpacity, setHeaderOpacity] = useState<boolean>(false);
+  // 모바일 메뉴 열림/닫힘 상태
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const { homeRef, aboutMeRef, skillsRef, projectsRef } = sectionRefs;
@@ -50,7 +52,7 @@ const Header = ({ sectionRefs, scrollToSection }: HeaderProps) => {
 
   return (
     <header
-      className={`{ w-16 sm:w-full fixed left-0 top-0 z-50 transition-all duration-400 ${headerOpacity ? "bg-main-gray" : "bg-black/0"}`}
+      className={`{ w-full fixed left-0 top-0 z-50 transition-all duration-400 ${headerOpacity ? "bg-main-gray" : "bg-black/0"}`}
       ref={headerRef}
     >
       <div className="w-full h-max flex justify-between items-center px-4 py-1">

@@ -12,6 +12,10 @@
   --gray-sub-text: #c4c4c4; */
 }
 
+body {
+  background-color: var(--color-main-gray);
+}
+
 @keyframes scrollGuideMove {
   0% {
     transform: translateY(0px);

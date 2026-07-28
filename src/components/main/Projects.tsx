@@ -151,85 +151,152 @@ export const PROJECTS: Project[] = [
 const Projects = ({ ref }: any) => {
   return (
     <section
-      className="w-full bg-main-gray flex flex-col justify-center items-center py-20 px-10"
+      className="w-full bg-main-gray flex flex-col justify-center items-center py-10 sm:py-20 px-10"
       ref={ref}
     >
       <div className="w-full">
         <div className="relative w-max h-max py-5">
-          <h2 className="relative text-gray-100 text-6xl font-bold tracking-wider px-4 z-10">
+          <h2 className="relative text-gray-100 text-5xl font-bold tracking-wider px-4 z-10 sm:text-6xl">
             Projects
           </h2>
-          <div className="absolute -right-2 bottom-0 bg-yellow-300 w-[65%] h-[0.7rem] z-0" />
+          <div className="absolute -right-2 bottom-2 bg-yellow-300 w-[65%] h-[0.35rem] sm:h-[0.7rem] sm:bottom-0 z-0" />
         </div>
       </div>
-      <div className="grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] w-full pt-15">
-        <ul>
-          {PROJECTS.map((project, _idx) => (
-            /**
-             * 프로젝트 리스트
-             */
+      <div className="w-full pt-10 sm:pt-15">
+        <ul className="flex flex-col gap-6">
+          {PROJECTS.map((project) => (
             <li
               key={project.title}
-              className="max-xl bg-[#3b3b3b] rounded-xl px-10 pt-10 mb-6 flex gap-12"
+              className="
+          grid
+          grid-cols-1
+          items-start
+          gap-7
+          rounded-xl
+          bg-[#3b3b3b]
+          px-5 py-6
+
+          md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]
+          md:gap-10
+          md:px-8
+          md:py-8
+
+          xl:gap-12
+          xl:px-10
+          xl:py-10
+        "
             >
               {/* 프로젝트 썸네일 이미지 */}
-              <div className="relative w-[60%] h-max rounded-2xl overflow-hidden">
+              <div className="relative min-w-0 overflow-hidden rounded-2xl">
                 <img
                   src={project.image.src}
                   alt={project.image.alt}
-                  className="object-cover z-30"
+                  className="
+              block
+              h-auto
+              w-full
+              object-contain
+            "
                 />
 
                 {/* Dimmed */}
-                <div className="w-full h-full absolute left-0 top-0 bg-black/30" />
+                <div className="pointer-events-none absolute inset-0 bg-black/20" />
               </div>
 
               {/* 프로젝트 설명 */}
-              <div className="text-gray-100">
-                <h3 className="text-6xl font-bold tracking-wider pb-5">
+              <article className="min-w-0 text-gray-100">
+                <h3
+                  className="
+              wrap-break-word
+              text-3xl
+              font-bold
+              tracking-wider
+
+              sm:text-4xl
+              md:text-5xl
+              xl:text-6xl
+            "
+                >
                   {project.title}
                 </h3>
-                <p className="text-[1.5rem] font-normal tracking-normal text-gray-400 pb-2">
+
+                <p
+                  className="
+              mt-4
+              text-base
+              font-normal
+              tracking-normal
+              text-gray-400
+
+              md:text-lg
+              xl:text-[1.5rem]
+            "
+                >
                   {project.period}
                 </p>
-                <div className="pb-6">
-                  <p className="w-[70%] text-xl font-medium  text-gray-100">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="pb-5">
-                  <div className="pb-4">
-                    <h4 className="text-2xl font-semibold mb-2">기능</h4>
-                    <ul className="text-[1.1rem] font-medium">
-                      {project.features.map((feat, _idx) => (
-                        <li key={feat} className="pb-1 tracking-wide">
-                          - {feat}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-semibold mb-2">핵심구현</h4>
-                    <ul className="text-[1.1rem] font-medium">
-                      {project.highlights.map((high, _idx) => (
-                        <li key={high} className="pb-1 tracking-wide">
-                          - {high}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold mb-2">기술 스택</h4>
-                  <ul className="flex flex-wrap gap-x-5">
-                    {project.skills.map((skill, _idx) => (
-                      <li key={skill.name} className="">
-                        {skill.name}
+
+                <p
+                  className="
+              mt-3
+              break-keep
+              text-base
+              font-medium
+              leading-7
+              text-gray-100
+
+              md:text-lg
+              xl:text-xl
+            "
+                >
+                  {project.description}
+                </p>
+
+                <div className="mt-6">
+                  <h4 className="mb-2 text-xl font-semibold md:text-2xl">
+                    기능
+                  </h4>
+
+                  <ul className="space-y-1 text-base font-medium md:text-[1.1rem]">
+                    {project.features.map((feat) => (
+                      <li
+                        key={feat}
+                        className="break-keep leading-7 tracking-wide"
+                      >
+                        - {feat}
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
+
+                <div className="mt-6">
+                  <h4 className="mb-2 text-xl font-semibold md:text-2xl">
+                    핵심 구현
+                  </h4>
+
+                  <ul className="space-y-1 text-base font-medium md:text-[1.1rem]">
+                    {project.highlights.map((high) => (
+                      <li
+                        key={high}
+                        className="break-keep leading-7 tracking-wide"
+                      >
+                        - {high}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6">
+                  <h4 className="mb-2 text-lg font-semibold md:text-xl">
+                    기술 스택
+                  </h4>
+
+                  <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                    {project.skills.map((skill) => (
+                      <li key={skill.name}>{skill.name}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
             </li>
           ))}
         </ul>
