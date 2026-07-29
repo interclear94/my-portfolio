@@ -29,6 +29,7 @@ export interface Project {
     alt: string;
   };
 
+  url: string;
   period: string;
   type: string;
   skills: ProjectSkill[];
@@ -52,6 +53,7 @@ export const PROJECTS: Project[] = [
     period: "2026.01 ~ 2026.07",
     type: "개인 풀스택 프로젝트",
 
+    url: "https://dolbomi-project-client.vercel.app/",
     skills: [
       {
         name: "React",
@@ -99,7 +101,7 @@ export const PROJECTS: Project[] = [
       },
       {
         label: "Demo",
-        href: "https://interclear94.vercel.app",
+        href: "https://dolbomi-project-client-sepia.vercel.app/home",
       },
     ],
   },
@@ -117,7 +119,7 @@ export const PROJECTS: Project[] = [
 
     period: "2025.4.1 ~ 4.8 (1주)",
     type: "개인 프로젝트",
-
+    url: "https://interclear94.github.io/memory_game/",
     skills: [
       { name: "HTML", icon: <img src={HtmlIcon} alt="" /> },
       { name: "CSS", icon: <img src={CssIcon} alt="" /> },
@@ -166,7 +168,7 @@ const Projects = ({ ref }: any) => {
         <ul className="flex flex-col gap-6">
           {PROJECTS.map((project) => (
             <li
-              key={project.title}
+              key={project.id}
               className="
           grid
           grid-cols-1
@@ -174,7 +176,8 @@ const Projects = ({ ref }: any) => {
           gap-7
           rounded-xl
           bg-[#3b3b3b]
-          px-5 py-6
+          px-5
+          py-6
 
           md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]
           md:gap-10
@@ -191,12 +194,7 @@ const Projects = ({ ref }: any) => {
                 <img
                   src={project.image.src}
                   alt={project.image.alt}
-                  className="
-              block
-              h-auto
-              w-full
-              object-contain
-            "
+                  className="block h-auto w-full object-contain"
                 />
 
                 {/* Dimmed */}
@@ -251,40 +249,43 @@ const Projects = ({ ref }: any) => {
                   {project.description}
                 </p>
 
+                {/* 기능 */}
                 <div className="mt-6">
                   <h4 className="mb-2 text-xl font-semibold md:text-2xl">
                     기능
                   </h4>
 
                   <ul className="space-y-1 text-base font-medium md:text-[1.1rem]">
-                    {project.features.map((feat) => (
+                    {project.features.map((feature) => (
                       <li
-                        key={feat}
+                        key={feature}
                         className="break-keep leading-7 tracking-wide"
                       >
-                        - {feat}
+                        - {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
 
+                {/* 핵심 구현 */}
                 <div className="mt-6">
                   <h4 className="mb-2 text-xl font-semibold md:text-2xl">
                     핵심 구현
                   </h4>
 
                   <ul className="space-y-1 text-base font-medium md:text-[1.1rem]">
-                    {project.highlights.map((high) => (
+                    {project.highlights.map((highlight) => (
                       <li
-                        key={high}
+                        key={highlight}
                         className="break-keep leading-7 tracking-wide"
                       >
-                        - {high}
+                        - {highlight}
                       </li>
                     ))}
                   </ul>
                 </div>
 
+                {/* 기술 스택 */}
                 <div className="mt-6">
                   <h4 className="mb-2 text-lg font-semibold md:text-xl">
                     기술 스택
@@ -295,6 +296,39 @@ const Projects = ({ ref }: any) => {
                       <li key={skill.name}>{skill.name}</li>
                     ))}
                   </ul>
+                </div>
+
+                {/* 배포 주소 */}
+                <div className="mt-8">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} 배포 페이지 열기`}
+                    className="
+                inline-flex
+                items-center
+                justify-center
+                rounded-md
+                bg-yellow-300
+                px-5
+                py-3
+                text-base
+                font-semibold
+                text-gray-900
+                transition-colors
+                duration-200
+
+                hover:bg-yellow-200
+                focus-visible:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-yellow-300
+                focus-visible:ring-offset-2
+                focus-visible:ring-offset-[#3b3b3b]
+              "
+                  >
+                    배포 페이지 보기
+                  </a>
                 </div>
               </article>
             </li>
